@@ -7,11 +7,6 @@ node{
        def mvnHome = tool name: 'Maven_internal', type: 'maven'   
       sh "${mvnHome}/bin/mvn package"
    }
-   stage('Deploy to Tomcat'){
-      
-      sshagent(['ssh-key-1']) {
-         sh 'scp -o StrictHostKeyChecking=no target/*.war tomcat@192.168.43.246:Tomcat8/apache-tomcat-8.5.31/webapps'
-      }
-   }
+   
   
 }
